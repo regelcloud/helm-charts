@@ -1,3 +1,14 @@
 apiVersion: v1
-entries: {}
+entries:
+  code-server:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-11-16T11:13:56.902691376Z"
+    description: A Helm chart for Kubernetes
+    digest: 044ef20538df69f110de5238be6ef6b015abf7fc0fb287605c8197c5264e36e9
+    name: code-server
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/code-server-0.1.0/code-server-0.1.0.tgz
+    version: 0.1.0
 generated: "2021-11-16T16:38:49.997551+05:30"
