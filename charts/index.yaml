@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  code-server:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-11-16T16:01:01.534023+05:30"
+    description: A Helm chart for Kubernetes
+    digest: 0c6b00816da6e35045ff1c74f486336cf2c9b8a48d46ae563fb6e80843bbd898
+    name: code-server
+    type: application
+    urls:
+    - code-server/code-server-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-11-16T16:01:01.531792+05:30"
