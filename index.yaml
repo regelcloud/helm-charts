@@ -11,4 +11,15 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/code-server-0.1.0/code-server-0.1.0.tgz
     version: 0.1.0
+  mantis-api-server:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-11-25T11:44:32.610726928Z"
+    description: A Helm chart for Kubernetes
+    digest: 794e6aa5db809f696367dff1580d7f792d0fd9a7b276f93cc6f10829d4599db5
+    name: mantis-api-server
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/mantis-api-server-0.1.1/mantis-api-server-0.1.1.tgz
+    version: 0.1.1
 generated: "2021-11-16T16:38:49.997551+05:30"
