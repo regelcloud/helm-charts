@@ -22,7 +22,7 @@ spec:
     spec:
       imagePullSecrets:
         - name: "{{ .Values.imagePullSecrets.name }}-{{ .Release.Name }}"
-        
+
       serviceAccountName: {{ include "mantis-backend.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
@@ -37,6 +37,8 @@ spec:
               containerPort: 5000
               protocol: TCP
           livenessProbe:
+            initialDelaySeconds: 30
+            periodSeconds: 5
             httpGet:
               path: /
               port: http
