@@ -5,5 +5,5 @@
 helm repo add regelcloud https://helm.regelcloud.com
 helm repo update
 helm search repo regelcloud 
-helm install -n mantis-system mantis-backend  regelcloud/mantis-backend 
+helm install -n mantis-system mantis-ui  regelcloud/mantis-ui 
 ```
