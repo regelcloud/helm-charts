@@ -1,4 +1,4 @@
-# Helm chart for mantis backend app
+# Helm chart for mantis apiserver app
 
 ## How to use
 ```bash
