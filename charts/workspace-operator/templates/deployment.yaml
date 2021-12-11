@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "mantis-api-server.fullname" . }}
+  name: {{ include "workspace-operator.fullname" . }}
   labels:
-    {{- include "mantis-api-server.labels" . | nindent 4 }}
+    {{- include "workspace-operator.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "mantis-api-server.selectorLabels" . | nindent 6 }}
+      {{- include "workspace-operator.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,11 +18,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "mantis-api-server.selectorLabels" . | nindent 8 }}
+        {{- include "workspace-operator.selectorLabels" . | nindent 8 }}
     spec:
+      {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
-        - name: "{{ .Values.imagePullSecrets.name }}-{{ .Release.Name }}"
-      serviceAccountName: {{ include "mantis-api-server.serviceAccountName" . }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "workspace-operator.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -33,7 +35,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 8082
+              containerPort: 80
               protocol: TCP
           livenessProbe:
             httpGet:
