@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ template "ample-postgeres.name" . }}
+  labels:
+    app: {{ template "ample-postgeres.name" . }}
+    chart: {{ template "ample-postgeres.chart" . }}
+spec:
+  serviceName: {{ .Values.serviceName }}
+  replicas: {{ .Values.replicas }}
+  updateStrategy:
+    type: {{ .Values.updateStrategy.type }}
+  selector:
+    matchLabels:
+      app: {{ template "ample-postgeres.name" . }}
+  template:
+    metadata:
+      name: {{ template "ample-postgeres.name" . }}
+      labels:
+        app: {{ template "ample-postgeres.name" . }}
+    spec:
+      containers:
+        - name: {{ template "ample-postgeres.fullname" . }}
+          image: {{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: POSTGRES_PASSWORD
+              value: {{ .Values.secrets.postgresdb_password }}
+            - name: PGDATA
+              value: {{ .Values.secrets.pg_data }}
+          volumeMounts:
+            - name: postgres-disk
+              mountPath: {{ .Values.volumeMounts.postgres_disk }}
+      volumes:
+        - hostPath:
+            path: {{ .Values.hostPath }}
+            type: DirectoryOrCreate
+          name: postgres-disk  
