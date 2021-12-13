@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  ample-postgeres:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-12-13T19:56:46.837256927Z"
+    description: A Helm chart for Kubernetes
+    digest: 861032eabd768dae9962e4acb8ff40c6debccaf8c3094801fdbec0adba25189d
+    name: ample-postgeres
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/ample-postgeres-0.1.0/ample-postgeres-0.1.0.tgz
+    version: 0.1.0
   code-server:
   - apiVersion: v2
     appVersion: 1.1.0
