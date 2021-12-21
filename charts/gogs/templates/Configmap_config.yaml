@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gogs-config
+  labels:
+    {{- if .Values.volumeMountsConfig.additionalLabels }}
+      {{- toYaml .Values.volumeMountsConfig.additionalLabels | nindent 4 }}
+    {{- end }}
+
+data:
+{{ .Values.volumeMountsConfig.fileName | indent 2 }}: |-
+{{ .Values.volumeMountsConfig.fileContent | indent 4 }}

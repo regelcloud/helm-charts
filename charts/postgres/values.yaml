@@ -4,7 +4,6 @@
 ##
 serviceName: postgres
 replicas: 1
-namespace: gogs
 
 global:
   postgresql: {}
