@@ -3,6 +3,7 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
+namespace: gogs
 
 ports:
   - containerPort: 22
@@ -13,15 +14,28 @@ ports:
 volumeMounts:
   - name: gogs-persistent-storage
     mountPath: /data
+  - name: gog-volume
+    mountPath: /data/gogs/conf/app.ini
+    subPath: app.ini
+  - name: gogs-sh
+    mountPath: /app/gogs/script.sh
+    subPath: script.sh  
 
 volumes:
   - hostPath:
-      path: /k8-data/gogs
+      path: /k8-data/gogs-nw
       type: DirectoryOrCreate
     name: gogs-persistent-storage
+  - configMap:
+      name: gogs-config
+    name: gog-volume
+  - configMap:
+      name: gogs-shell
+    name: gogs-sh    
+   
 
 readinessProbe:
-  initialDelaySeconds: 1
+  initialDelaySeconds: 90
   periodSeconds: 5
   timeoutSeconds: 1
   successThreshold: 1
@@ -55,6 +69,9 @@ serviceAccount:
 
 podAnnotations: {}
 
+ingress:
+  port: 80
+  
 podSecurityContext: {}
   # fsGroup: 2000
 
@@ -126,3 +143,70 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+
+volumeMountsConfig:
+  name: gogs-config
+  fileName: app.ini
+  fileContent: |
+    BRAND_NAME = Gogs
+    RUN_USER   = git
+    RUN_MODE   = prod
+    [database]
+    TYPE = postgres
+    HOST     = ample-postgeres.gogs-nw.svc.cluster.local:5432
+    NAME     = postgres
+    USER     = postgres
+    PASSWORD = P@ssword
+    SSL_MODE = disable
+    PATH     = /app/gogs/data/gogs.db
+
+    [repository]
+    ROOT = /data/git/gogs-repositories
+    [server]
+    DOMAIN           = localhost
+    HTTP_PORT        = 3000
+    EXTERNAL_URL     = http://localhost:3000/
+    DISABLE_SSH      = false
+    SSH_PORT         = 22
+    START_SSH_SERVER = false
+    OFFLINE_MODE     = false
+
+    [mailer]
+    ENABLED = false
+    [service]
+    REGISTER_EMAIL_CONFIRM = false
+    ENABLE_NOTIFY_MAIL     = false
+    DISABLE_REGISTRATION   = false
+    ENABLE_CAPTCHA         = true
+    REQUIRE_SIGNIN_VIEW    = false
+
+    [picture]
+    DISABLE_GRAVATAR        = false
+    ENABLE_FEDERATED_AVATAR = false
+
+    [session]
+    PROVIDER = file
+
+    [log]
+    MODE      = file
+    LEVEL     = Info
+    ROOT_PATH = /app/gogs/log
+
+    [security]
+    INSTALL_LOCK = true
+    SECRET_KEY   = Fm9iSaCyxQSyh2w
+
+volumeMountsScript:
+  name: gogs-config
+  fileName: script.sh
+  fileContent: |
+    #!/bin/bash
+    set -xe
+    while true
+    do
+      su git -c "/app/gogs/gogs admin create-user --name gogs --password welcomegogs123 --admin --email gogs@newuser.com |grep 'user already exists'"
+      if [ "$?" -eq "0" ]; then
+        exit 0
+      fi
+    done   
