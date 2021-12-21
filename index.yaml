@@ -3,6 +3,16 @@ entries:
   code-server:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-12-21T12:51:40.550123024Z"
+    description: A Helm chart for Code Server
+    digest: e6fb8c305797659a846a193186edab831c9987cc88accdbda0e0137cd95a8f1e
+    name: code-server
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/code-server-1.1.5/code-server-1.1.5.tgz
+    version: 1.1.5
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-12-21T12:41:05.469830695Z"
     description: A Helm chart for Code Server
     digest: a77a870ea5c33fbbdc2feb64ffeea092a4142cef8a25bc00b852b48ec3eeb914
@@ -22,6 +32,16 @@ entries:
     - https://github.com/regelcloud/helm-charts/releases/download/code-server-1.1.3/code-server-1.1.3.tgz
     version: 1.1.3
   gogs:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-12-21T12:51:40.691582536Z"
+    description: A Helm chart for Gogs
+    digest: b49ac5e3fc9cb777405415c92ae8d9b6a9c694a72f787bc0feef8bc255849f76
+    name: gogs
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/gogs-1.1.5/gogs-1.1.5.tgz
+    version: 1.1.5
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2021-12-21T12:41:05.594941679Z"
@@ -45,6 +65,16 @@ entries:
   mantis-api-server:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-12-21T12:51:40.811351647Z"
+    description: A Helm chart for Mantis API Server
+    digest: 9913f25f369b59a548f749e6de6c7161dcc9c657aff8177503cd13fe08086f25
+    name: mantis-api-server
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/mantis-api-server-1.1.5/mantis-api-server-1.1.5.tgz
+    version: 1.1.5
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-12-21T12:41:05.730398379Z"
     description: A Helm chart for Mantis API Server
     digest: f5b7b487b11e77ca4820cd511ea03db3a16183caa0f232e0e7b2c00d5d798cd7
@@ -64,6 +94,16 @@ entries:
     - https://github.com/regelcloud/helm-charts/releases/download/mantis-api-server-1.1.3/mantis-api-server-1.1.3.tgz
     version: 1.1.3
   mantis-backend:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-12-21T12:51:41.078729084Z"
+    description: A Helm chart for Mantis Backend
+    digest: f17bcda3263fa1e44240e286cb1c73920aa405698b8a0b2f844fd10cfed8056a
+    name: mantis-backend
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/mantis-backend-1.1.5/mantis-backend-1.1.5.tgz
+    version: 1.1.5
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2021-12-21T12:41:05.871205137Z"
@@ -87,6 +127,16 @@ entries:
   mantis-ui:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-12-21T12:51:41.210577418Z"
+    description: A Helm chart for Mantis UI
+    digest: 0ef48a35201c4088c3425bd79c2986927c583a9606e871514bdacbc0b4ce7d75
+    name: mantis-ui
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/mantis-ui-1.1.5/mantis-ui-1.1.5.tgz
+    version: 1.1.5
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-12-21T12:41:05.998028241Z"
     description: A Helm chart for Mantis UI
     digest: 087867651f8c1c5d259df03aeb11084be5e5d0d1345596cb425a91b5cc5ef5e4
@@ -106,6 +156,16 @@ entries:
     - https://github.com/regelcloud/helm-charts/releases/download/mantis-ui-1.1.3/mantis-ui-1.1.3.tgz
     version: 1.1.3
   nexus3:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-12-21T12:51:41.341893342Z"
+    description: A Helm chart for Nexus 3
+    digest: 6eedd94949aab51301110550e3f44999d0033484f99912c664c5040e6d627176
+    name: nexus3
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/nexus3-1.1.5/nexus3-1.1.5.tgz
+    version: 1.1.5
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2021-12-21T12:41:06.165246891Z"
@@ -129,6 +189,16 @@ entries:
   postgres:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-12-21T12:51:41.451607468Z"
+    description: A Helm chart for Postgres
+    digest: d90326de0d3301ff369de6d1bacd6e77537186c8d2546a7a0e5dfb31bc3c4aef
+    name: postgres
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/postgres-1.1.5/postgres-1.1.5.tgz
+    version: 1.1.5
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-12-21T12:41:06.288987661Z"
     description: A Helm chart for Postgres
     digest: 72d5be976683ab343806c06f6993af9ecf0ca188893f45dd57b5c82724d0788f
@@ -150,6 +220,16 @@ entries:
   workspace-operator:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-12-21T12:51:41.567268603Z"
+    description: A Helm chart for Workspace Operator
+    digest: 119ea0b0263dc07b1df241182fcc94812a2ef150947a92521b9e7e7e691b123b
+    name: workspace-operator
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/workspace-operator-1.1.5/workspace-operator-1.1.5.tgz
+    version: 1.1.5
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-12-21T12:41:06.427960299Z"
     description: A Helm chart for Workspace Operator
     digest: 348d97bb08da435b28c998e70e6c19087b8da67b673cc9338a2126b2a3d4403b
@@ -168,4 +248,4 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/workspace-operator-1.1.3/workspace-operator-1.1.3.tgz
     version: 1.1.3
-generated: "2021-12-21T12:41:06.4280505Z"
+generated: "2021-12-21T12:51:41.567324404Z"
