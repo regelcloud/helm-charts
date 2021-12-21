@@ -1,0 +1,7 @@
+helm upgrade -n mantis-system mantis-backend mantis-backend -f mantis-backend/values-ample-prod.yaml
+
+helm upgrade -n mantis-system mantis-ui mantis-ui -f mantis-ui/values-ample-prod.yaml
+
+
+helm upgrade -n mantis-system mantis-api-server mantis-api-server -f mantis-api-server/values-ample-prod.yaml
+

@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  config.yaml: |
+    # Database settings
+    database:
+      url: {{ .Values.config.database.url }}
+      db: {{ .Values.config.database.db }}
+      timeout: {{ .Values.config.database.timeout }}
+
+    # Server settings
+    server:
+      development:
+        host: "localhost"
+        port: ":8082"
+      production:
+        host: "0.0.0.0"
+        port: ":8082"
+
+    helm:
+      repos:
+        default:
+        - name: "regelcloud"
+          url: "https://helm.regelcloud.com"
