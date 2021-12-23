@@ -31,6 +31,16 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/code-server-1.1.3/code-server-1.1.3.tgz
     version: 1.1.3
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-12-23T15:08:37.945553944Z"
+    description: A Helm chart for Code Server
+    digest: fdcecca3c0c036f740db1f3319c404d14d54210370425cd0880769b3f4af87c3
+    name: code-server
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/code-server-0.0.1/code-server-0.0.1.tgz
+    version: 0.0.1
   gogs:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -258,4 +268,4 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/workspace-operator-1.1.3/workspace-operator-1.1.3.tgz
     version: 1.1.3
-generated: "2021-12-23T15:06:03.517682644Z"
+generated: "2021-12-23T15:08:37.945635246Z"
