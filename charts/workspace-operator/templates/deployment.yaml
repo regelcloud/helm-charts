@@ -5,6 +5,8 @@ metadata:
   labels:
     {{- include "workspace-operator.labels" . | nindent 4 }}
 spec:
+  strategy:
+      type: Recreate
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
@@ -20,10 +22,8 @@ spec:
       labels:
         {{- include "workspace-operator.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        - name: "{{ .Values.imagePullSecrets.name }}-{{ .Release.Name }}" 
       serviceAccountName: {{ include "workspace-operator.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
@@ -35,16 +35,14 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 8080
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
+          # livenessProbe:
+          #   tcpSocket:
+          #     port: 8080
+          # readinessProbe:
+          #   tcpSocket:
+          #     port: 8080
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
