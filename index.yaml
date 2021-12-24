@@ -64,6 +64,17 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/mantis-backend-0.1.1/mantis-backend-0.1.1.tgz
     version: 0.1.1
+  mantis-ui:
+  - apiVersion: v2
+    appVersion: 1.16.2
+    created: "2021-12-24T09:15:11.041095499Z"
+    description: A Helm chart for Mantis UI
+    digest: b4b41b69e5ebc5d29ca363d4c93340cff7131aa5e7f49ed71feebdb8a19f02da
+    name: mantis-ui
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/mantis-ui-0.1.2/mantis-ui-0.1.2.tgz
+    version: 0.1.2
   nexus3:
   - apiVersion: v2
     appVersion: 1.17.0
@@ -86,4 +97,4 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/postgres-0.1.0/postgres-0.1.0.tgz
     version: 0.1.0
-generated: "2021-12-24T09:06:52.29527633Z"
+generated: "2021-12-24T09:15:11.041108999Z"
