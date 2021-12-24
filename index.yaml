@@ -144,6 +144,16 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/mantis-backend-1.1.3/mantis-backend-1.1.3.tgz
     version: 1.1.3
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-12-24T04:39:50.368703869Z"
+    description: A Helm chart for Mantis Backend
+    digest: 8cfee1487f4e92b84d90722f0adc6495f43882beb1f6f308d9a9f32e04bf2bbe
+    name: mantis-backend
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/mantis-backend-0.1.1/mantis-backend-0.1.1.tgz
+    version: 0.1.1
   mantis-ui:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -278,4 +288,4 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/workspace-operator-1.1.3/workspace-operator-1.1.3.tgz
     version: 1.1.3
-generated: "2021-12-24T04:38:41.405925293Z"
+generated: "2021-12-24T04:39:50.36875517Z"
