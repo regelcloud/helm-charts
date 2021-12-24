@@ -23,13 +23,17 @@ RELEASE_VERSION_MINOR=$(cat charts/${chart}/Chart.yaml | grep -w 'version:' | cu
 RELEASE_VERSION_PATCH=$(cat charts/${chart}/Chart.yaml | grep -w 'version:' | cut -d ':' -f2 | cut -d '.' -f3)
 
 
-RELEASE_VERSION_MAJOR=$(cut -d'.' -f1 < release)
-RELEASE_VERSION_MINOR=$(cut -d'.' -f2 < release)
-RELEASE_VERSION_PATCH=$(cut -d'.' -f3 < release)
+APP_VERSION_MAJOR=$(cat charts/${chart}/Chart.yaml | grep -w 'appVersion:' | cut -d ':' -f2 | cut -d '.' -f1)
+APP_VERSION_MINOR=$(cat charts/${chart}/Chart.yaml | grep -w 'appVersion:' | cut -d ':' -f2 | cut -d '.' -f1)
+APP_VERSION_PATCH=$(cat charts/${chart}/Chart.yaml | grep -w 'appVersion:' | cut -d ':' -f2 | cut -d '.' -f1)
 
 echo "[INFO] Current release version = ${RELEASE_VERSION_MAJOR}.${RELEASE_VERSION_MINOR}.${RELEASE_VERSION_PATCH}"
 echo "[INFO] New release version = ${RELEASE_VERSION_MAJOR}.${RELEASE_VERSION_MINOR}.$(expr ${RELEASE_VERSION_PATCH} + 1)"
-RELEASE_VERSION_LATEST="${RELEASE_VERSION_MAJOR}.${RELEASE_VERSION_MINOR}.$(expr ${RELEASE_VERSION_PATCH} + 1)"
+echo "[INFO] New app version = ${APP_VERSION_MAJOR}.${APP_VERSION_MINOR}.$(expr ${RELEASE_VERSION_PATCH} + 1)"
+
+RELEASE_VERSION_LATEST="${RELEASE_VERSION_MAJOR}.${RELEASE_VERSION_MINOR}.$(expr ${APP_VERSION_PATCH} + 1)"
+APP_VERSION_LATEST="${APP_VERSION_MAJOR}.${APP_VERSION_MINOR}.$(expr ${APP_VERSION_PATCH} + 1)"
+
 echo "${RELEASE_VERSION_MAJOR}.${RELEASE_VERSION_MINOR}.$(expr ${RELEASE_VERSION_PATCH} + 1)" 
 
 for c in ${charts}
@@ -37,6 +41,7 @@ do
     if [[ ${chart} -eq $c ]]; then
         echo "${chart}"
         sed  -i '' "s/version:.*/version: ${RELEASE_VERSION_LATEST}/g" charts/"${chart}"/Chart.yaml
+        sed  -i '' "s/appVersion:.*/appVersion: ${APP_VERSION_LATEST}/g" charts/"${chart}"/Chart.yaml
         git pull
         git add .
         git commit -m "Updated helm chart ${chart} to version: ${RELEASE_VERSION_LATEST}"
