@@ -72,6 +72,16 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/gogs-1.1.3/gogs-1.1.3.tgz
     version: 1.1.3
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-12-24T04:38:41.405890893Z"
+    description: A Helm chart for Gogs
+    digest: 5f5159c84b08ca2550cfc73cb4bf6eeca69de7d29ee2b662697e624c1f92d4f2
+    name: gogs
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/gogs-0.0.1/gogs-0.0.1.tgz
+    version: 0.0.1
   mantis-api-server:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -268,4 +278,4 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/workspace-operator-1.1.3/workspace-operator-1.1.3.tgz
     version: 1.1.3
-generated: "2021-12-23T15:08:37.945635246Z"
+generated: "2021-12-24T04:38:41.405925293Z"
