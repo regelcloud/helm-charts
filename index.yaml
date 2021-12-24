@@ -247,6 +247,16 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/postgres-1.1.3/postgres-1.1.3.tgz
     version: 1.1.3
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-12-24T04:40:44.310312596Z"
+    description: A Helm chart for Postgres
+    digest: 06e6a8cfd4ccf7bc483684db50fda0f7e25e4946937801bb905009a921ea05ed
+    name: postgres
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/postgres-0.1.1/postgres-0.1.1.tgz
+    version: 0.1.1
   workspace-operator:
   - apiVersion: v2
     appVersion: 1.17.0
@@ -288,4 +298,4 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/workspace-operator-1.1.3/workspace-operator-1.1.3.tgz
     version: 1.1.3
-generated: "2021-12-24T04:39:50.36875517Z"
+generated: "2021-12-24T04:40:44.3104337Z"
