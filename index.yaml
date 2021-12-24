@@ -298,4 +298,14 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/workspace-operator-1.1.3/workspace-operator-1.1.3.tgz
     version: 1.1.3
-generated: "2021-12-24T04:40:44.3104337Z"
+  - apiVersion: v2
+    appVersion: 1.17.0
+    created: "2021-12-24T04:51:07.668784655Z"
+    description: A Helm chart for Workspace Operator
+    digest: 69766c4ac1ddfc74d989dacdaff81c9bfea85f928e490453d7d3af6c87196ff1
+    name: workspace-operator
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/workspace-operator-0.1.2/workspace-operator-0.1.2.tgz
+    version: 0.1.2
+generated: "2021-12-24T04:51:07.668830256Z"
