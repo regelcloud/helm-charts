@@ -3,6 +3,16 @@ entries:
   gogs:
   - apiVersion: v2
     appVersion: 1.17.0
+    created: "2021-12-24T06:39:12.984931219Z"
+    description: A Helm chart for Gogs
+    digest: f81008f26f13b129d0a26db81f56aa1038c5ee590ff01bbf1f2a081a1b28202d
+    name: gogs
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/gogs-0.1.1/gogs-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.17.0
     created: "2021-12-24T06:37:37.88768372Z"
     description: A Helm chart for Gogs
     digest: 995e655e0e5b3e9b88e479f1a47a29eac5e4fcafc78ddc72c6d89daf3e9fb530
@@ -11,4 +21,4 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/gogs-0.1.0/gogs-0.1.0.tgz
     version: 0.1.0
-generated: "2021-12-24T06:37:37.88768902Z"
+generated: "2021-12-24T06:39:12.984946919Z"
