@@ -32,4 +32,15 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/nexus3-0.1.0/nexus3-0.1.0.tgz
     version: 0.1.0
-generated: "2021-12-24T06:40:13.962648993Z"
+  postgres:
+  - apiVersion: v2
+    appVersion: 1.17.0
+    created: "2021-12-24T06:41:26.641356341Z"
+    description: A Helm chart for Postgres
+    digest: 744390e8072fa341708232f176301fb664888e28611b5c64f92c09fa8e4fedb6
+    name: postgres
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/postgres-0.1.0/postgres-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-12-24T06:41:26.641374341Z"
