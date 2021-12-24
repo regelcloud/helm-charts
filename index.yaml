@@ -42,6 +42,17 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/gogs-0.1.0/gogs-0.1.0.tgz
     version: 0.1.0
+  mantis-api-server:
+  - apiVersion: v2
+    appVersion: 1.17.0
+    created: "2021-12-24T08:42:46.364223544Z"
+    description: A Helm chart for Mantis API Server
+    digest: f0631cc41ee01fc3794cee905a60b3ad6b9f0b001be19f27b42a6fb0c226af39
+    name: mantis-api-server
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/mantis-api-server-0.1.1/mantis-api-server-0.1.1.tgz
+    version: 0.1.1
   nexus3:
   - apiVersion: v2
     appVersion: 1.17.0
@@ -64,4 +75,4 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/postgres-0.1.0/postgres-0.1.0.tgz
     version: 0.1.0
-generated: "2021-12-24T08:40:02.605179874Z"
+generated: "2021-12-24T08:42:46.364234644Z"
