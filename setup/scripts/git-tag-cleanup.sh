@@ -8,3 +8,4 @@ git tag -d $(git tag -l)
 git pull
 git fetch
 git push origin --delete $(git tag -l) # Pushing once should be faster than multiple times
+git fetch
