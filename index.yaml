@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  code-server:
+  - apiVersion: v2
+    appVersion: 1.19.0
+    created: "2021-12-24T08:32:51.128174625Z"
+    description: A Helm chart for Code Server
+    digest: d73195d5748b560543f2d5a31e197d1c130f79cfdcd0bf5914323771b29e6270
+    name: code-server
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/code-server-0.1.0/code-server-0.1.0.tgz
+    version: 0.1.0
   gogs:
   - apiVersion: v2
     appVersion: 1.17.0
@@ -43,4 +54,4 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/postgres-0.1.0/postgres-0.1.0.tgz
     version: 0.1.0
-generated: "2021-12-24T06:43:08.001914899Z"
+generated: "2021-12-24T08:32:51.128184225Z"
