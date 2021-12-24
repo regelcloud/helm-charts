@@ -43,4 +43,15 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/postgres-0.1.0/postgres-0.1.0.tgz
     version: 0.1.0
-generated: "2021-12-24T06:41:26.641374341Z"
+  workspace-operator:
+  - apiVersion: v2
+    appVersion: 1.17.0
+    created: "2021-12-24T06:42:23.032101543Z"
+    description: A Helm chart for Workspace Operator
+    digest: 1ae5139460350cc280eea799a9e1bd7bc0c8ff6a6dfe2397b7ab6fa46ec4f1d8
+    name: workspace-operator
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/workspace-operator-0.1.0/workspace-operator-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-12-24T06:42:23.032111443Z"
