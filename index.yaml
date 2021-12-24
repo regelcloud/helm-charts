@@ -21,4 +21,15 @@ entries:
     urls:
     - https://github.com/regelcloud/helm-charts/releases/download/gogs-0.1.0/gogs-0.1.0.tgz
     version: 0.1.0
-generated: "2021-12-24T06:39:12.984946919Z"
+  nexus3:
+  - apiVersion: v2
+    appVersion: 1.17.0
+    created: "2021-12-24T06:40:13.962637093Z"
+    description: A Helm chart for Nexus 3
+    digest: 66585c2229fb13239f1dbada6fb9f827168e22d308c7d812408c4bd7855fb9a0
+    name: nexus3
+    type: application
+    urls:
+    - https://github.com/regelcloud/helm-charts/releases/download/nexus3-0.1.0/nexus3-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-12-24T06:40:13.962648993Z"
