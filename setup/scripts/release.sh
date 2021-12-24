@@ -24,8 +24,8 @@ RELEASE_VERSION_PATCH=$(cat charts/${chart}/Chart.yaml | grep -w 'version:' | cu
 
 
 APP_VERSION_MAJOR=$(cat charts/${chart}/Chart.yaml | grep -w 'appVersion:' | cut -d ':' -f2 | cut -d '.' -f1)
-APP_VERSION_MINOR=$(cat charts/${chart}/Chart.yaml | grep -w 'appVersion:' | cut -d ':' -f2 | cut -d '.' -f1)
-APP_VERSION_PATCH=$(cat charts/${chart}/Chart.yaml | grep -w 'appVersion:' | cut -d ':' -f2 | cut -d '.' -f1)
+APP_VERSION_MINOR=$(cat charts/${chart}/Chart.yaml | grep -w 'appVersion:' | cut -d ':' -f2 | cut -d '.' -f2)
+APP_VERSION_PATCH=$(cat charts/${chart}/Chart.yaml | grep -w 'appVersion:' | cut -d ':' -f2 | cut -d '.' -f3)
 
 echo "[INFO] Current release version = ${RELEASE_VERSION_MAJOR}.${RELEASE_VERSION_MINOR}.${RELEASE_VERSION_PATCH}"
 echo "[INFO] New release version = ${RELEASE_VERSION_MAJOR}.${RELEASE_VERSION_MINOR}.$(expr ${RELEASE_VERSION_PATCH} + 1)"
