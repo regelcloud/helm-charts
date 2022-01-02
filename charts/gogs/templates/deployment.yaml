@@ -53,8 +53,8 @@ spec:
           lifecycle:
             postStart:
               exec:
-                command: ["/bin/sh", "-c", "sleep 90 && chmod 777 && /app/gogs/script.sh || exit 0" ]  
-      {{- with .Values.nodeSelector }}
+                command: ["/bin/sh", "-c", "sleep 60 && /app/gogs/script.sh || exit 0" ]  
+       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}

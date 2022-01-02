@@ -1,7 +1,8 @@
+{{- if .Values.volumeMountsConfig.enabled }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: gogs-config
+  name: {{ .Values.volumeMountsConfig.name }}
   labels:
     {{- if .Values.volumeMountsConfig.additionalLabels }}
       {{- toYaml .Values.volumeMountsConfig.additionalLabels | nindent 4 }}
@@ -10,3 +11,4 @@ metadata:
 data:
 {{ .Values.volumeMountsConfig.fileName | indent 2 }}: |-
 {{ .Values.volumeMountsConfig.fileContent | indent 4 }}
+{{- end }}
