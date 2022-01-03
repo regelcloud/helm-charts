@@ -51,7 +51,7 @@ ingress:
     nginx.ingress.kubernetes.io/proxy-body-size: "5000m"
     nginx.ingress.kubernetes.io/client_max_body_size: 1000m
   hosts:
-    - host: example.com
+    - host: jenkins.corp.amplelogic.com
       paths:
         - path: /
           pathType: Prefix
@@ -59,10 +59,10 @@ ingress:
             service:
               port:
                 number: 80
-  # tls: 
-  #  - secretName: nginx-tls
-  #    hosts:
-  #      - example.com
+  tls: 
+   - secretName: nginx-tls
+     hosts:
+       - jenkins.corp.amplelogic.com
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -100,3 +100,11 @@ volumes:
     name: jenkins-vol
 
 
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
