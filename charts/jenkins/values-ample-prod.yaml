@@ -59,22 +59,22 @@ ingress:
             service:
               port:
                 number: 80
-  tls: 
-   - secretName: nginx-tls
-     hosts:
-       - jenkins.corp.amplelogic.com
+  # tls: 
+  #  - secretName: nginx-tls
+  #    hosts:
+  #      - jenkins.corp.amplelogic.com
 
-resources: {}
+resources: 
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+  limits:
+    cpu: 1000m
+    memory: 12288Mi
+  requests:
+    cpu: 200m
+    memory: 1024Mi
 
 autoscaling:
   enabled: false
@@ -83,11 +83,20 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
-nodeSelector: {}
+nodeSelector: 
+  kubernetes.io/hostname: worker-4
 
 tolerations: []
 
-affinity: {}
+affinity: 
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - worker-4
 
 volumeMounts:
   - name: jenkins-vol
