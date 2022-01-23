@@ -45,15 +45,14 @@ volumeMounts:
 
 volumes:
   - hostPath:
-      path: /k8-data/gogs-nw
+      path: /k8-data/gogs-nw-test1 # has to set different for different client
       type: DirectoryOrCreate
     name: gogs-persistent-storage
   - configMap:
-      name: gogs-config
+      name: gogs-config-test
     name: gog-volume
   - configMap:
       name: gogs-sh
-    name: gogs-sh  
    
 
 # readinessProbe:
@@ -74,7 +73,7 @@ image:
   repository: gogs/gogs
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.12.3"
+  tag: "0.12"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -144,7 +143,8 @@ affinity: {}
 
 
 volumeMountsConfig:
-  name: gogs-config
+  enabled: true
+  name: gogs-config-test
   fileName: app.ini
   fileContent: |
     BRAND_NAME = Gogs
@@ -193,18 +193,19 @@ volumeMountsConfig:
 
     [security]
     INSTALL_LOCK = true
-    SECRET_KEY   = Fm9iSaCyxQSyh2w
+    SECRET_KEY   = 2BKiQLTHQnrBJTQd
 
 volumeMountsScript:
-  name: gogs-config
+  enabled: true
+  name: gogs-config-sh
   fileName: script.sh
   fileContent: |
     #!/bin/bash
     set -xe
     while true
     do
-      su git -c "/app/gogs/gogs admin create-user --name gogs --password welcomegogs123 --admin --email gogs@newuser.com |grep 'user already exists'"
+      su git -c "/app/gogs/gogs admin create-user --name gogs_user --password welcomegogs123 --admin --email gogs_user@newuser.com |grep 'user already exists'"
       if [ "$?" -eq "0" ]; then
         exit 0
       fi
-    done   
+    done

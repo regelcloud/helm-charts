@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "gogs.fullname" . }}
+  name: {{ include "jenkins.fullname" . }}
   labels:
-    {{- include "gogs.labels" . | nindent 4 }}
+    {{- include "jenkins.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
+{{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-  {{- end }}
+{{- end }}
   selector:
     matchLabels:
-      {{- include "gogs.selectorLabels" . | nindent 6 }}
+      {{- include "jenkins.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
+    {{- with .Values.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
-      {{- end }}
+    {{- end }}
       labels:
-        {{- include "gogs.selectorLabels" . | nindent 8 }}
+        {{- include "jenkins.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "gogs.serviceAccountName" . }}
+      serviceAccountName: {{ include "jenkins.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      {{- with .Values.volumes }}
+            {{- with .Values.volumes }}
       volumes:
         {{- toYaml . | nindent 8 }}  
       {{- end }}
@@ -40,21 +40,25 @@ spec:
           volumeMounts:
             {{- toYaml .Values.volumeMounts | nindent 12 }}
           ports:
-            {{- range .Values.ports }}
-              - containerPort: {{ .containerPort }}
-                name: {{ .name }}
-            {{- end }}
-          livenessProbe:
-            {{- toYaml .Values.livenessProbe | nindent 12 }}
-          readinessProbe:
-            {{- toYaml .Values.readinessProbe | nindent 12 }}
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+            - name: jnlp-port
+              containerPort: 50000
+              protocol: TCP
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          lifecycle:
-            postStart:
-              exec:
-                command: ["/bin/sh", "-c", "sleep 60 && /app/gogs/script.sh || exit 0" ]  
-       {{- with .Values.nodeSelector }}
+          volumeMounts:
+            {{- toYaml .Values.volumeMounts | nindent 12 }}
+      {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
