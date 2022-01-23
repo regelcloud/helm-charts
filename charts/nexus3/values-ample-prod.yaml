@@ -1,0 +1,134 @@
+# Default values for nexus3.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+## ingress settings
+ingress:
+  enabled: true
+  className: ""
+  annotations: 
+    kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "5000m"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: nexus32.corp.amplelogic.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          backend: 
+            service: 
+              port:
+                number: 8083
+    - host: hub32.corp.amplelogic.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              port:
+                number: 5000
+  tls: 
+    - secretName: nginx-tls
+      hosts:
+        - nexus32.corp.amplelogic.com
+
+
+## containers
+replicaCount: 1
+
+ports:
+  - containerPort: 8081
+  - containerPort: 5000
+
+initContainers:
+  - name: volume-mount-permission
+    image: busybox
+    command: ["sh", "-c", "chown -R 200:200 /nexus-data"]
+    volumeMounts:
+    - name: nexus-data
+      mountPath: /nexus-data
+
+volumeMounts:
+  - name: nexus-data
+    mountPath: /nexus-data
+
+volumes:
+  - hostPath:
+      path: /k8-data/nexus-data-new
+      type: DirectoryOrCreate
+    name: nexus-data
+
+
+image:
+  repository: sonatype/nexus3
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "3.33.0"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  ports:
+    - port: 8083
+      targetPort: 8081
+      name: nexus
+    - port: 5000
+      targetPort: 5000
+      protocol: TCP
+      name: docker 
+  annotations:
+      prometheus.io/scrape: 'true'
+      prometheus.io/path:   /
+      prometheus.io/port:   '8083'
+
+resources: 
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  limits:
+    cpu: 1000m
+    memory: "4Gi"
+  requests:
+    cpu: 500m
+    memory: "2Gi"
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
