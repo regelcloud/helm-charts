@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ template "ample-postgeres.name" . }}
+  name: {{ template "postgres.name" . }}
   labels:
-    app: {{ template "ample-postgeres.name" . }}
-    chart: {{ template "ample-postgeres.chart" . }}
+    app: {{ template "postgres.name" . }}
+    chart: {{ template "postgres.chart" . }}
 spec:
   serviceName: {{ .Values.serviceName }}
   replicas: {{ .Values.replicas }}
@@ -12,15 +12,15 @@ spec:
     type: {{ .Values.updateStrategy.type }}
   selector:
     matchLabels:
-      app: {{ template "ample-postgeres.name" . }}
+      app: {{ template "postgres.name" . }}
   template:
     metadata:
-      name: {{ template "ample-postgeres.name" . }}
+      name: {{ template "postgres.name" . }}
       labels:
-        app: {{ template "ample-postgeres.name" . }}
+        app: {{ template "postgres.name" . }}
     spec:
       containers:
-        - name: {{ template "ample-postgeres.fullname" . }}
+        - name: {{ template "postgres.fullname" . }}
           image: {{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:

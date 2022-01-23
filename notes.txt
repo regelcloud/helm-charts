@@ -1,0 +1,12 @@
+
+kubectl create secret docker-registry docker-regcreds --docker-server="docker.io" --docker-username="deepak7093" --docker-password="" --docker-email="deepak7093@gmail.com" 
+
+helm upgrade --install -n mantis-system mantis-backend mantis-backend -f mantis-backend/values-ample-prod.yaml
+
+helm upgrade --install -n mantis-system mantis-ui mantis-ui -f mantis-ui/values-ample-prod.yaml
+
+
+helm upgrade --install -n mantis-system mantis-api-server mantis-api-server -f mantis-api-server/values-ample-prod.yaml
+
+helm upgrade --install -n mantis-system workspace-operator workspace-operator -f workspace-operator/values-ample-prod.yaml
+

@@ -3,4 +3,3 @@
 values-*.yaml
 .DS_Store
 !.github/
-!.gitignore

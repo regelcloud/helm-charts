@@ -1,1 +1,2 @@
-# Regel Cloud Helm charts repo
+# helm-charts
+Helm charts for regelcloud

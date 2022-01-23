@@ -53,22 +53,21 @@ volumes:
     name: gog-volume
   - configMap:
       name: gogs-sh
-    name: gogs-sh   
    
 
-readinessProbe:
-  initialDelaySeconds: 90
-  periodSeconds: 5
-  timeoutSeconds: 1
-  successThreshold: 1
-  failureThreshold: 1
-  tcpSocket:
-    port: 3000
+# readinessProbe:
+#   initialDelaySeconds: 90
+#   periodSeconds: 5
+#   timeoutSeconds: 1
+#   successThreshold: 1
+#   failureThreshold: 1
+#   tcpSocket:
+#     port: 3000
 
-livenessProbe:
-  httpGet:
-    path: /
-    port: http
+# livenessProbe:
+#   httpGet:
+#     path: /
+#     port: http
 
 image:
   repository: gogs/gogs
@@ -153,7 +152,7 @@ volumeMountsConfig:
     RUN_MODE   = prod
     [database]
     TYPE = postgres
-    HOST     = ample-postgeres.dev001-1fab0193a1.svc.cluster.local:5432
+    HOST     = postgres:5432
     NAME     = postgres
     USER     = postgres
     PASSWORD = P@ssword
