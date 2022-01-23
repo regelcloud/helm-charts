@@ -5,13 +5,20 @@
 replicaCount: 1
 
 image:
-  repository: nginx
-  pullPolicy: IfNotPresent
+  repository: deepak7093/mantis
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: workspace-controller-1.0.4
 
 imagePullSecrets: 
-- name: docker-regcreds
+  name: imgcreds
+
+imageCredentials: 
+  registry: ""
+  username: ""
+  password: ""
+  email: ""
+
 nameOverride: ""
 fullnameOverride: ""
 
