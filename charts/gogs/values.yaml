@@ -52,7 +52,7 @@ volumes:
       name: gogs-config-test
     name: gog-volume
   - configMap:
-      name: gogs-config-sh
+      name: gogs-sh
     name: gogs-sh   
    
 
